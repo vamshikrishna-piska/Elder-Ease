@@ -27,13 +27,14 @@ class TaskSerializer(serializers.ModelSerializer):
     assigned_to_name = serializers.CharField(source='assigned_to.username', read_only=True)
      
 
-    assigned_to = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(),
+    assigned_to = serializers.SlugRelatedField(
+        queryset=User.objects.filter(role='helper'),
+        slug_field='username',
         required=False,
         allow_null=True
-    )
+        )
 
     class Meta:
         model = Task
         fields = "__all__"
-        read_only_fields = ('status', 'created_by')
+        read_only_fields = ('created_by',)
