@@ -1,0 +1,20 @@
+# Virtual environments
+venv/
+.venv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Django database
+db.sqlite3
+
+# Django logs
+*.log
+
+# VSCode settings
+.vscode/
+
+# OS files
+.DS_Store      # macOS
+Thumbs.db      # Windows
